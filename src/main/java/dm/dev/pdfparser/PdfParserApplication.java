@@ -35,10 +35,9 @@ public class PdfParserApplication implements CommandLineRunner {
             sb.append(textFromPage);
         }
 
-
-        Map<Reader, List<?>> readerToResult = new HashMap<>();
+        Map<String, List<?>> readerToResult = new HashMap<>();
         readers.forEach(r -> {
-            readerToResult.put(r, r.read(sb)); // todo sb should be unmodifiable
+            readerToResult.put(r.getClass().getSimpleName(), r.read(sb)); // todo sb should be unmodifiable
         });
         System.out.println(readerToResult);
     }

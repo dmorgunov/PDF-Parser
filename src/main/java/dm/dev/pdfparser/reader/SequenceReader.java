@@ -16,7 +16,7 @@ public class SequenceReader implements Reader {
             + sequenceElement + endOfSequence;
 
     @Override
-    public List<String> read(StringBuilder sb) {
+    public List<String> read(final StringBuilder sb) {
         Pattern sequencePattern = Pattern.compile(elementsInSequence);
         Matcher matcher = sequencePattern.matcher(sb.toString());
         return RegexpHelper.find(sb, matcher);
